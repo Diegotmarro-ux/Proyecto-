@@ -42,11 +42,14 @@ class AuthController extends BaseController
                 'logged_in' => true
             ]);
 
-            
+            $lang = session()->get('lang') ?? 'es';
+
+$msgExito = ($lang === 'en') ? 'Login successful. Welcome back!' : '¡Inicio de sesión exitoso! Bienvenido/a.';
+
             if ($usuario['administrador'] == 1) {
-                return redirect()->to('/maestra');
+                return redirect()->to('/maestra')->with('mensaje', $msgExito);
             } else {
-                return redirect()->to('/estudiante');
+                return redirect()->to('/estudiante')->with('mensaje', $msgExito);
             }
 
         } else { 
@@ -57,9 +60,14 @@ class AuthController extends BaseController
 
     public function logout()
     {
-        
-        session()->destroy();
-        return redirect()->to('/login');
+        $lang = session()->get('lang') ?? 'es';
+        session()->remove(['codusuario', 'nombre', 'administrador', 'logged_in']);
+
+        session()->set('lang', $lang); 
+
+        $msgLogout = ($lang === 'en') ? 'Session closed successfully.' : 'Sesión cerrada exitosamente.';
+
+        return redirect()->to('/login')->with('mensaje', $msgLogout);
     }
 
 
@@ -221,7 +229,7 @@ public function restablecer($token = null)
         $lang   = session()->get('lang') ?? 'es';
 
         $errMsg = ($lang === 'en') ? 'Invalid or expired link.' : 'El enlace es inválido o ha expirado.';
-        
+
         return redirect()->to('/login')->with('error', $errMsg);
     }
 

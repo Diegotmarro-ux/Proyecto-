@@ -31,17 +31,6 @@
         <br>
         <button type="submit">Ingresar</button>
     </form>
-    <div>
-    <input type="checkbox" id="remember" name="remember" value="1">
-    <label for="remember"><?= (session()->get('lang') === 'en') ? 'Remember me' : 'Recordarme'; ?></label>
-</div>
-<br>
-<button type="submit"><?= (session()->get('lang') === 'en') ? 'Log in' : 'Ingresar'; ?></button>
-
-<a href="<?= base_url('/recuperar'); ?>" style="margin-left: 10px;">
-    <?= (session()->get('lang') === 'en') ? 'Forgot password?' : '¿Olvidaste tu contraseña?'; ?>
-</a>
-
 </body>
 </html>
 

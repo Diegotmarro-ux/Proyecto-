@@ -24,3 +24,9 @@ $routes->post('guardar-nueva-password', 'AuthController::guardarNuevaPassword');
 $routes->get('/maestra', 'MaestraController::index', ['filter' => 'authFilter:admin']);
 
 $routes->get('/estudiante', 'EstudianteController::index', ['filter' => 'authFilter']);
+
+$routes->get('/maestra', 'MaestraController::index');
+
+$routes->get('/estudiante', 'EstudianteController::index');
+
+$routes->get('/logout', 'AuthController::logout'); 
