@@ -8,14 +8,33 @@ class AuthController extends BaseController
 {
     public function welcome()
     {
+        if (session()->get('logged_in')) {
+
+            return (session()->get('administrador') == 1) 
+
+                ? redirect()->to('/maestra') 
+
+                : redirect()->to('/estudiante');
+        }
         $lang = $this->request->getGet('lang') ?? session()->get('lang') ?? 'es';
         session()->set('lang', $lang);
 
         $data['lang'] = $lang;
+
         return view('w', $data);
     }
+    
     public function login()  
     {
+        
+        if (session()->get('logged_in')) 
+
+            return (session()->get('administrador') == 1) 
+
+                ? redirect()->to('/maestra') 
+
+                : redirect()->to('/estudiante');
+        
             return view('login');
     }
 
@@ -277,4 +296,9 @@ public function guardarNuevaPassword()
 
     return redirect()->to('/login')->with('error', 'Token inválido.');
 }
-}
+public function cambiarIdioma($lang = 'es')
+    {
+        session()->set('lang', $lang);
+        return redirect()->back(); 
+    } 
+    }
