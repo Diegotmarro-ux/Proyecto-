@@ -1,4 +1,5 @@
 <?php $lang = session()->get('lang') ?? 'es'; ?>
+
 <!DOCTYPE html>
 <html lang="<?= $lang; ?>">
 <head>
@@ -24,7 +25,6 @@
 
     <h2><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></h2>
 
-    <!-- Botón Nuevo Usuario -->
     <a href="<?= base_url('usuarios/nuevo'); ?>">
         <button type="button"><?= ($lang === 'en') ? 'New user' : 'Nuevo usuario'; ?></button>
     </a>
@@ -49,13 +49,19 @@
             <?php if (!empty($usuarios) && is_array($usuarios)): ?>
                 <?php foreach ($usuarios as $u): ?>
                     <tr>
-                        <td><?= esc($u['nombre']); ?></td>
+                        
+                    <td>
+                        <a href="<?= base_url('usuarios/ver/' . $u['codusuario']); ?>">
+                        <?= esc($u['nombre']); ?>
+                
+                           </a>
+                      </td>
                         <td><?= esc($u['correo']); ?></td>
                         <td><?= ((int)$u['verificado'] === 1) ? 'Sí' : 'No'; ?></td>
                         <td><?= ((int)$u['administrador'] === 1) ? 'Sí' : 'No'; ?></td>
-                        <td><?= esc($u['created_at'] ?? '2025-01-01 00:00:00'); ?></td>
+                        <td><?= esc($u['created_at'] ?? '2026-10-10 00:00:00'); ?></td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach; ?> 
             <?php else: ?>
                 <tr>
                     <td colspan="5" style="text-align: center;"><?= ($lang === 'en') ? 'No users found.' : 'No hay usuarios registrados.'; ?></td>

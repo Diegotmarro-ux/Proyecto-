@@ -59,3 +59,13 @@ $routes->get('/usuarios', 'UsuarioController::index', ['filter' => 'authFilter:a
 $routes->get('/usuarios/nuevo', 'UsuarioController::nuevo', ['filter' => 'authFilter:admin']);
 
 $routes->post('/usuarios/guardar', 'UsuarioController::guardar', ['filter' => 'authFilter:admin']);
+
+$routes->get('/usuarios/ver/(:num)', 'UsuarioController::ver/$1', ['filter' => 'authFilter:admin']);
+
+$routes->get('/usuarios/editar/(:num)', 'UsuarioController::editar/$1', ['filter' => 'authFilter:admin']);
+
+$routes->post('/usuarios/actualizar/(:num)', 'UsuarioController::actualizar/$1', ['filter' => 'authFilter:admin']);
+
+$routes->get('/usuarios/eliminar/(:num)', 'UsuarioController::eliminar/$1', ['filter' => 'authFilter:admin']);
+
+$routes->get('/tareas', 'TareaController::index'); 
