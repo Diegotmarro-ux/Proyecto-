@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></title>
 </head>
-<body>
+<body> 
 
    
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -25,17 +25,16 @@
 
     <h2><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></h2>
 
-   
+   <?php if (session()->get('administrador') == '1'): ?>
     <a href="<?= base_url('tareas/nueva'); ?>">
         <button type="button"><?= ($lang === 'en') ? 'New Task' : 'Nueva Tarea'; ?></button>
     </a>
     <br><br>
-
+    <?php endif; ?> 
    
     <form action="<?= base_url('tareas'); ?>" method="get" style="margin-bottom: 20px;">
-        <label for="search"><?= ($lang === 'en') ? 'Search' : 'Buscar'; ?></label>
         <input type="text" id="search" name="search" value="<?= esc($search ?? ''); ?>">
-        <button type="submit">🔍</button>
+        <button type="submit">Buscar🔍</button>
         <?php if (!empty($search)): ?>
             <a href="<?= base_url('tareas'); ?>"><?= ($lang === 'en') ? 'Clear' : 'Limpiar'; ?></a>
         <?php endif; ?>
@@ -45,15 +44,17 @@
         <?php if (!empty($tareas) && is_array($tareas)): ?>
             <?php foreach ($tareas as $t): ?>
                 <div>
-                    <a href="<?= base_url('tareas/ver/' . $t['codtarea']); ?>">
+                    <a href="<?= base_url('tareas/ver/' . $t['CodTarea']); ?>">
                         <?= esc($t['titulo']); ?>
                     </a>
                 </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p><?= ($lang === 'en') ? 'No tasks found.' : 'No se encontraron tareas.'; ?></p>
-        <?php endif; ?>
-    </div>
+                 <?php endforeach; ?>
+            <?php else: ?>
+                   <p><?= ($lang === 'en') ? 'No tasks found.' : 'No se encontraron tareas.'; ?></p>
+
+                   <?php endif; ?>
+                </div>
+        
 
     <br>
 
@@ -68,4 +69,4 @@
     </div>
 
 </body>
-</html>
+</html> 

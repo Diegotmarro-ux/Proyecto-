@@ -69,3 +69,15 @@ $routes->post('/usuarios/actualizar/(:num)', 'UsuarioController::actualizar/$1',
 $routes->get('/usuarios/eliminar/(:num)', 'UsuarioController::eliminar/$1', ['filter' => 'authFilter:admin']);
 
 $routes->get('/tareas', 'TareaController::index'); 
+
+$routes->get('/tareas/nueva', 'TareaController::nueva'); 
+
+$routes->post('/tareas/crear', 'TareaController::crear');  
+
+$routes->get('tareas/editar/(:num)', 'TareaController::editar/$1');
+
+$routes->post('tareas/actualizar/(:num)', 'TareaController::actualizar/$1');
+
+$routes->get('tareas/ver/(:num)', 'TareaController::ver/$1');
+
+$routes->get('tareas/eliminar/(:num)', 'TareaController::eliminar/$1'); 
