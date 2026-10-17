@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <title><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></title>
 </head>
-<body> 
+<body>
 
    
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <div>
-            <a href="<?= base_url('/maestra'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> | 
+            <a href="<?= ((int)session()->get('administrador') === 1) ? base_url('/maestra'): base_url('/estudiante'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> |
             <a href="<?= base_url('idioma/en'); ?>">English</a> | 
             <a href="<?= base_url('idioma/es'); ?>">Español</a>
         </div>
         <div>
-            <?= ($lang === 'en') ? 'Hello,' : 'Hola,'; ?> <?= esc(session()->get('nombre')); ?> | 
-            <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> | 
-            <a href="<?= base_url('usuarios'); ?>"><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></a> | 
+            <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> |
+            <?php if ((int)session()->get('administrador') === 1): ?>
+               <a href="<?= base_url('usuarios'); ?>"><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></a> | 
+               <?php endif; ?>
             <strong><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></strong> | 
-            <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a>
+            <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a> 
         </div>
     </div>
 

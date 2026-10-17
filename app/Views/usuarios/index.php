@@ -7,8 +7,6 @@
     <title><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></title>
 </head>
 <body>
-
-   
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <div>
             <a href="<?= base_url('/maestra'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> | 
@@ -16,7 +14,6 @@
             <a href="<?= base_url('idioma/es'); ?>">Español</a>
         </div>
         <div>
-            <?= ($lang === 'en') ? 'Hello,' : 'Hola,'; ?> <?= esc(session()->get('nombre')); ?> | 
             <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> | 
             <strong><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></strong> | 
             <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a>
@@ -42,7 +39,6 @@
                 <th><?= ($lang === 'en') ? 'email' : 'Correo'; ?></th>
                 <th><?= ($lang === 'en') ? 'Active' : 'Activo'; ?></th>
                 <th><?= ($lang === 'en') ? 'Administrator' : 'Administrador'; ?></th>
-                <th><?= ($lang === 'en') ? 'Created at' : 'Creado el'; ?></th>
             </tr>
         </thead>
         <tbody>
@@ -59,7 +55,6 @@
                         <td><?= esc($u['correo']); ?></td>
                         <td><?= ((int)$u['verificado'] === 1) ? 'Sí' : 'No'; ?></td>
                         <td><?= ((int)$u['administrador'] === 1) ? 'Sí' : 'No'; ?></td>
-                        <td><?= esc($u['created_at'] ?? '2026-10-10 00:00:00'); ?></td>
                     </tr>
                 <?php endforeach; ?> 
             <?php else: ?>

@@ -81,3 +81,5 @@ $routes->post('tareas/actualizar/(:num)', 'TareaController::actualizar/$1');
 $routes->get('tareas/ver/(:num)', 'TareaController::ver/$1');
 
 $routes->get('tareas/eliminar/(:num)', 'TareaController::eliminar/$1'); 
+
+$routes->get('verificar/(:segment)', 'AuthController::verificar/$1');

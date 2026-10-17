@@ -8,20 +8,16 @@ class AuthController extends BaseController
 {
     public function welcome()
     {
+        
         if (session()->get('logged_in')) {
-
             return (session()->get('administrador') == 1) 
-
                 ? redirect()->to('/maestra') 
-
                 : redirect()->to('/estudiante');
         }
-        $lang = $this->request->getGet('lang') ?? session()->get('lang') ?? 'es';
-        session()->set('lang', $lang);
+        $lang = session()->get('lang') ?? 'es';
 
-        $data['lang'] = $lang;
+    return view('w', ['lang' => $lang]);
 
-        return view('w', $data);
     }
     
     public function login()  
@@ -86,7 +82,7 @@ $msgExito = ($lang === 'en') ? 'Login successful. Welcome back!' : '¡Inicio de 
 
         $msgLogout = ($lang === 'en') ? 'Session closed successfully.' : 'Sesión cerrada exitosamente.';
 
-        return redirect()->to('/login')->with('mensaje', $msgLogout);
+           return redirect()->to('/')->with('mensaje', $msgLogout);
     }
 
 
@@ -172,19 +168,19 @@ public function registrar()
         $email->setTo($correo);
         $email->setSubject('Verifica tu cuenta - Tareas Escolares');
         
-        $link = base_url("verificar/{$token}");
+        $link = site_url("verificar/{$token}");
         $mensaje = "<h2>¡Hola {$nombre}!</h2><p>Haz clic en el siguiente enlace para activar tu cuenta:</p><a href='{$link}'>Verificar mi cuenta</a>";
         
         $email->setMessage($mensaje);
         $email->send();
 
-        return redirect()->to('/login')->with('error', 'Registro exitoso. Te hemos enviado un correo para activar tu cuenta.');
+        return redirect()->to('/login')->with('mensaje', 'Registro exitoso. Te hemos enviado un correo para activar tu cuenta.');
     }
 
 
     public function verificar($token = null)
     {
-        
+        $lang = session()->get('lang') ?? 'es';
         $usuarioModel = new UsuarioModel();
         $usuario = $usuarioModel->where('token_verificacion', $token)->first();
 
@@ -193,11 +189,19 @@ public function registrar()
                 'verificado'         => 1,
                 'token_verificacion' => null
             ]);
-            return redirect()->to('/login')->with('error', '¡Cuenta verificada exitosamente! Ya puedes ingresar.');
-        }
+            $msgExito = ($lang === 'en')
+            ? 'Account verified successfully! You can now log in.'
+            : '¡Cuenta verificada exitosamente! Ya puedes ingresar.';
 
-        return redirect()->to('/login')->with('error', 'El enlace de verificación es inválido o ya fue utilizado.');
-    }
+           return redirect()->to('/login')->with('mensaje', $msgExito);
+        }
+        $msgError = ($lang === 'en')
+        ? 'Verification link is invalid or has already been used.'
+        : 'El enlace de verificación es inválido o ya fue utilizado.';
+
+    return redirect()->to('/login')->with('error', $msgError);
+}
+
      
      public function recuperar()
 {

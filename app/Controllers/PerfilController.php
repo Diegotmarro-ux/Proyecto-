@@ -12,7 +12,9 @@ class PerfilController extends BaseController
         if (!session()->get('logged_in')) {
             return redirect()->to('/login');
         }
-
+            $lang = $this->request->getGet('lang') ?? session()->get('lang') ?? 'es';
+              session()->set('lang', $lang);
+              
         $usuarioModel = new UsuarioModel();
         $usuario = $usuarioModel->find(session()->get('codusuario'));
 

@@ -21,7 +21,6 @@ $title = ($lang === 'en') ? 'Profile' : 'Perfil';
             </div>
         <?php endif; ?>
 
-        
      
 <div style="margin-bottom: 15px;">
     <div style="width: 120px; height: 110px; border: 2px solid #000; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0;">

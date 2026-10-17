@@ -16,7 +16,7 @@ $title = ($lang === 'en') ? 'Edit profile' : 'Editar perfil';
         <h2><?= ($lang === 'en') ? 'Edit profile' : 'Editar perfil'; ?></h2>
 
         <form action="<?= base_url('/perfil/guardar'); ?>" method="post">
-            <!-- Campo Nombre -->
+      
             <div style="margin-bottom: 15px;">
                 <label for="nombre"><strong><?= ($lang === 'en') ? 'name' : 'nombre'; ?></strong></label><br>
                 <input type="text" id="nombre" name="nombre" value="<?= esc($usuario['nombre']) ?>" style="width: 100%; padding: 10px; background-color: #b0e0e6; border: 1px solid #000; border-radius: 5px; box-sizing: border-box;" required>

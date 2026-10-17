@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-</head>
+<style>
+        body { font-family: sans-serif; margin: 20px; }
+        .nav { display: flex; justify-content: space-between; border-bottom: 1px solid #e0e0e0; padding-bottom: 15px; }
+        .nav a { text-decoration: none; color: #333; margin: 0 5px; }
+        .nav a.home { color: #007bff; font-weight: bold; margin-right: 10px; margin-left: 0; }
+        .content { text-align: center; margin-top: 60px; }
+        .content h1 { font-size: 2.2em; font-weight: bold; margin-bottom: 15px; }
+        .content p { color: #333; font-size: 1.1em; }
+    </style>
+</head> 
 <body> 
 
     <a href="<?= base_url('/'); ?>">Volver al Inicio</a>

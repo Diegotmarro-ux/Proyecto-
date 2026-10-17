@@ -10,8 +10,12 @@ $txtProfile  = ($lang === 'en') ? 'Profile' : 'Perfil';
 $txtUsers    = ($lang === 'en') ? 'Users' : 'Usuarios';
 $txtTasks    = ($lang === 'en') ? 'Tasks' : 'Tareas';
 $txtLogout   = ($lang === 'en') ? 'Log out' : 'Cerrar sesión';
-?>
 
+$txtEnglish  = ($lang === 'en') ? 'English' : 'Inglés';
+$txtSpanish  = ($lang === 'en') ? 'Spanish' : 'Español';
+
+$homeUrl = $isAdmin ? base_url('/maestra') : base_url('/estudiante');
+?>
 <?php if (session()->getFlashdata('mensaje')): ?>
     <div style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 12px; margin: 15px; border-radius: 6px; font-weight: bold;">
         <?= session()->getFlashdata('mensaje') ?>
@@ -20,9 +24,9 @@ $txtLogout   = ($lang === 'en') ? 'Log out' : 'Cerrar sesión';
 
 <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #f8f9fa; padding: 12px 25px; border-bottom: 2px solid #e9ecef; font-family: sans-serif;">
     <div>
-        <a href="<?= base_url('/') ?>" style="margin-right: 15px; text-decoration: none; color: #007bff; font-weight: bold;"><?= $txtHome ?></a>
-        <a href="?lang=en" style="margin-right: 10px; text-decoration: none; color: #333;">English</a> | 
-        <a href="?lang=es" style="margin-left: 10px; text-decoration: none; color: #333;">Español</a>
+        <a href="<?= $homeUrl ?>" style="margin-right: 15px; text-decoration: none; color: #007bff; font-weight: bold;"><?= $txtHome ?></a>
+        <a href="<?= site_url('idioma/en') ?>" style="margin-right: 10px; text-decoration: none; color: #333;"><?= $txtEnglish ?></a> | 
+        <a href="<?= site_url('idioma/es') ?>" style="margin-left: 10px; text-decoration: none; color: #333;"><?= $txtSpanish ?></a>
     </div>
 
     <div>
