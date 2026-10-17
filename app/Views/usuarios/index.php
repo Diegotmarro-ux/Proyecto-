@@ -6,19 +6,11 @@
     <meta charset="UTF-8">
     <title><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></title>
 </head>
-<body>
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <div>
-            <a href="<?= base_url('/maestra'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> | 
-            <a href="<?= base_url('idioma/en'); ?>">English</a> | 
-            <a href="<?= base_url('idioma/es'); ?>">Español</a>
-        </div>
-        <div>
-            <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> | 
-            <strong><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></strong> | 
-            <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a>
-        </div>
-    </div>
+<body style="margin: 0; font-family: sans-serif;">
+  <?= $this->include('layout/header') ?>
+      
+  <main style="padding: 30px;">
+
 
     <h2><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></h2>
 
@@ -70,6 +62,7 @@
     <div>
         <?= $pager->links(); ?>
     </div>
+    </main>
 
 </body> 
 </html>

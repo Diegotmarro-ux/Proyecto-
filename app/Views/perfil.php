@@ -21,6 +21,7 @@ $title = ($lang === 'en') ? 'Profile' : 'Perfil';
             </div>
         <?php endif; ?>
 
+        
      
 <div style="margin-bottom: 15px;">
     <div style="width: 120px; height: 110px; border: 2px solid #000; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0;">
@@ -30,10 +31,11 @@ $title = ($lang === 'en') ? 'Profile' : 'Perfil';
             <span style="color: #666; font-size: 14px; font-weight: bold;"><?= ($lang === 'en') ? 'No image' : 'Sin imagen'; ?></span>
         <?php endif; ?>
     </div>
-           
-            <a href="<?= base_url('/perfil/eliminar-foto'); ?>" style="display: inline-block; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 6px 12px; border-radius: 4px; text-decoration: none;">
-                <?= ($lang === 'en') ? 'Delete Profile image' : 'Eliminar imagen de perfil'; ?>
-            </a>
+                  <a href="<?= base_url('/perfil/eliminar-foto'); ?>">
+
+                   <button type="button"><?= ($lang === 'en') ? 'Delete Profile image' : 'Eliminar imagen de perfil'; ?></button>
+                          </a> 
+             
         </div>
 
         
@@ -47,23 +49,21 @@ $title = ($lang === 'en') ? 'Profile' : 'Perfil';
             <span><?= esc($usuario['correo']) ?></span>
         </div>
 
-       
-        <div>
-           
-            <a href="<?= base_url('/perfil/validar-password'); ?>" style="padding: 8px 18px; background-color: #b0e0e6; color: #000; text-decoration: none; border: 1px solid #000; border-radius: 5px; margin-right: 10px; font-weight: bold;">
-                <?= ($lang === 'en') ? 'Edit' : 'Editar'; ?>
-            </a>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                         <a href="<?= base_url('/perfil/validar-password'); ?>">
+                              <button type="button"><?= ($lang === 'en') ? 'Edit' : 'Editar'; ?></button>
+                                         </a>
 
-            
-            <a href="<?= base_url('/perfil/cambiar-password'); ?>" style="padding: 8px 18px; background-color: #b0e0e6; color: #000; text-decoration: none; border: 1px solid #000; border-radius: 5px; margin-right: 10px; font-weight: bold;">
-                <?= ($lang === 'en') ? 'Change password' : 'Cambiar contraseña'; ?>
-            </a>
+                        <a href="<?= base_url('/perfil/cambiar-password'); ?>">
+                         <button type="button"><?= ($lang === 'en') ? 'Change password' : 'Cambiar contraseña'; ?></button>
+                                   </a>
 
-            
-            <a href="<?= base_url('/perfil/cambiar-foto'); ?>" style="padding: 8px 18px; background-color: #b0e0e6; color: #000; text-decoration: none; border: 1px solid #000; border-radius: 5px; font-weight: bold;">
-                <?= ($lang === 'en') ? 'Change profile image' : 'Cambiar imagen'; ?>
-            </a>
-        </div>
+                       <a href="<?= base_url('/perfil/cambiar-foto'); ?>">
+                         <button type="button"><?= ($lang === 'en') ? 'Change profile image' : 'Cambiar imagen'; ?></button>
+                                       </a>
+                                           </div>
+
+        
     </main>
 
 </body>

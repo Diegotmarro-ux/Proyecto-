@@ -5,25 +5,17 @@
     <meta charset="UTF-8">
     <title><?= ($lang === 'en') ? 'New User' : 'Nuevo Usuario'; ?></title>
 </head> 
-<body> 
+  <body style="margin: 0; font-family: sans-serif;"> 
 
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <div>
-            <a href="<?= base_url('/maestra'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> | 
-            <a href="<?= base_url('idioma/en'); ?>">English</a> | 
-            <a href="<?= base_url('idioma/es'); ?>">Español</a>
-        </div>
-        <div>
-            <?= ($lang === 'en') ? 'Hello,' : 'Hola,'; ?> <?= esc(session()->get('nombre')); ?> | 
-            <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> | 
-            <a href="<?= base_url('usuarios'); ?>"><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></a> | 
-            <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a>
-        </div>
-    </div>
+    <?= $this->include('layout/header') ?>
 
+    <main style="padding: 30px;">
+
+    <main style="padding: 30px;">
+         
     <h2><?= ($lang === 'en') ? 'New User' : 'Nuevo Usuario'; ?></h2>
 
-    <a href="<?= base_url('usuarios'); ?>">&lt;&lt; <?= ($lang === 'en') ? 'back to index' : 'volver al índice'; ?></a>
+    <a href="<?= base_url('usuarios'); ?>">&lt;&lt; <?= ($lang === 'en') ? 'back to home' : 'volver al inicio'; ?></a>
     <br><br>
 
     <?php if (session()->getFlashdata('errors')): ?>
@@ -62,6 +54,7 @@
             <a href="<?= base_url('usuarios'); ?>"><?= ($lang === 'en') ? 'Cancel' : 'Cancelar'; ?></a>
         </div>
     </form>
+          </main>
 
 </body>
 </html>

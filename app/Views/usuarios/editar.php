@@ -6,7 +6,6 @@
     <title><?= ($lang === 'en') ? 'Edit user' : 'Editar usuario'; ?></title>
 </head>
 <body> 
-
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <div>
             <a href="<?= base_url('/maestra'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> | 

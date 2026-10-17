@@ -20,15 +20,12 @@ $title = ($lang === 'en') ? 'Delete profile image' : 'Eliminar imagen de perfil'
         </p>
 
         <form action="<?= base_url('/perfil/confirmar-eliminar-foto'); ?>" method="post">
-            <button type="submit" style="padding: 8px 20px; background-color: #d4edda; color: #155724; border: 1px solid #000; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;">
-                <?= ($lang === 'en') ? 'Save' : 'Guardar'; ?>
-            </button>
+            <div style="display: flex; align-items: center; gap: 10px;">
+            <button type="submit"><?= ($lang === 'en') ? 'Save' : 'Guardar'; ?></button>
+              <a href="<?= base_url('/perfil'); ?>"><?= ($lang === 'en') ? 'Cancel' : 'Cancelar'; ?></a>
+                   </div>
+          </form>
+    </main> 
 
-            <a href="<?= base_url('/perfil'); ?>" style="display: inline-block; padding: 8px 20px; background-color: #f8d7da; color: #721c24; text-decoration: none; border: 1px solid #000; border-radius: 5px; font-weight: bold;">
-                <?= ($lang === 'en') ? 'Cancel' : 'Cancelar'; ?>
-            </a>
-        </form>
-    </main>
-
-</body>
-</html>
+</body> 
+</html> 

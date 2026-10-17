@@ -5,24 +5,11 @@
     <meta charset="UTF-8">
     <title><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></title>
 </head>
-<body>
+<body style="margin: 0; font-family: sans-serif;">
 
-   
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <div>
-            <a href="<?= ((int)session()->get('administrador') === 1) ? base_url('/maestra'): base_url('/estudiante'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> |
-            <a href="<?= base_url('idioma/en'); ?>">English</a> | 
-            <a href="<?= base_url('idioma/es'); ?>">Español</a>
-        </div>
-        <div>
-            <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> |
-            <?php if ((int)session()->get('administrador') === 1): ?>
-               <a href="<?= base_url('usuarios'); ?>"><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></a> | 
-               <?php endif; ?>
-            <strong><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></strong> | 
-            <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a> 
-        </div>
-    </div>
+ <?= $this->include('layout/header') ?>
+
+ <main style="padding: 30px;">
 
     <h2><?= ($lang === 'en') ? 'Tasks' : 'Tareas'; ?></h2>
 
@@ -68,6 +55,6 @@
             <button type="button" <?= ($order === 'ASC') ? 'disabled' : ''; ?>><?= ($lang === 'en') ? 'Older' : 'Más antiguas'; ?></button>
         </a>
     </div>
-
+     </main>
 </body>
 </html> 

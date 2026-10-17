@@ -12,7 +12,7 @@ $txtForgot   = ($lang === 'en') ? 'Forgot password?' : 'Â¿Olvidaste tu contraseÃ
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Login</title> 
     <style>
         body { font-family: sans-serif; margin: 20px; }
         .nav { display: flex; justify-content: space-between; border-bottom: 1px solid #e0e0e0; padding-bottom: 15px; }

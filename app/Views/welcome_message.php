@@ -176,7 +176,7 @@
                 padding: 0 1rem;
             }
             header .menu-item {
-                background-color: rgb(35, 140, 245);
+                background-color: rgba(244, 245, 246, 1);
                 border-top: 1px solid rgba(242, 242, 242, 1);
                 margin: 0 15px;
                 width: calc(100% - 30px);

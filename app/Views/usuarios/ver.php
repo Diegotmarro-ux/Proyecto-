@@ -5,21 +5,11 @@
     <meta charset="UTF-8">
     <title><?= ($lang === 'en') ? 'User' : 'Usuario'; ?></title>
 </head>
-<body> 
+      <body style="margin: 0; font-family: sans-serif;"> 
 
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <div>
-            <a href="<?= base_url('/maestra'); ?>"><?= ($lang === 'en') ? 'Home' : 'Inicio'; ?></a> | 
-            <a href="<?= base_url('idioma/en'); ?>">English</a> | 
-            <a href="<?= base_url('idioma/es'); ?>">Español</a>
-        </div>
-        <div>
-            <?= ($lang === 'en') ? 'Hello,' : 'Hola,'; ?> <?= esc(session()->get('nombre')); ?> | 
-            <a href="<?= base_url('perfil'); ?>"><?= ($lang === 'en') ? 'Profile' : 'Perfil'; ?></a> | 
-            <a href="<?= base_url('usuarios'); ?>"><strong><?= ($lang === 'en') ? 'Users' : 'Usuarios'; ?></strong></a> | 
-            <a href="<?= base_url('logout'); ?>"><?= ($lang === 'en') ? 'Log out' : 'Cerrar Sesión'; ?></a>
-        </div>
-    </div>
+    <?= $this->include('layout/header') ?>
+
+       <main style="padding: 30px;">
 
     <h2><?= ($lang === 'en') ? 'User' : 'Usuario'; ?></h2>
 
@@ -55,6 +45,6 @@
             <?= ($lang === 'en') ? 'Delete' : 'Eliminar'; ?>
         </a>
     </div>
-
+     </main>
 </body>
 </html>
